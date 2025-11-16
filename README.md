@@ -1,6 +1,6 @@
-# Project Euler on Wolfram
+# Project Euler on Mathematica
 
-[ProjectEuler.net](https://projecteuler.net/) challenges solved using Wolfram Language.
+[ProjectEuler.net](https://projecteuler.net/) challenges solved using Mathematica.
 
 ![Badge](https://projecteuler.net/profile/ThiagoPelizoni.png)
 
