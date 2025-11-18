@@ -16,3 +16,4 @@
 * [Problem 10](https://projecteuler.net/problem=10) | [Solution](src/problem_010.mathematica)
 * [Problem 11](https://projecteuler.net/problem=11) | [Solution](src/problem_011.mathematica)
 * [Problem 12](https://projecteuler.net/problem=12) | [Solution](src/problem_012.mathematica)
+* [Problem 13](https://projecteuler.net/problem=13) | [Solution](src/problem_013.mathematica)
