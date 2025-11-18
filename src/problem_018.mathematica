@@ -5,109 +5,100 @@
    Problem statement (Project Euler 18, paraphrased):
    
    By starting at the top of the triangle below and moving to adjacent numbers
-   on the row below, the maximum total from top to bottom is 23.
+   on the row below, find the maximum total from top to bottom.
    
+   Example small triangle:
         3
        7 4
       2 4 6
      8 5 9 3
    
-   That is, 3 + 7 + 4 + 9 = 23.
+   In this case, the maximum path is 3 + 7 + 4 + 9 = 23.
    
-   Find the maximum total from top to bottom of the given 15-row triangle.
-   
-   NOTE: As there are only 16384 routes through the triangle, it is possible
-   to solve this problem by trying every route. However, Problem 67, is the
-   same challenge with a triangle containing one-hundred rows; it cannot be
-   solved by brute force, and requires a clever method! ;o)
+   For the given 15-row triangle, find the maximum path sum.
 
    ---------------------------------------------------------------------------
-   Mathematical background: Dynamic Programming on Triangular Arrays
+   Mathematical background: Dynamic Programming
    ---------------------------------------------------------------------------
 
-   1) Problem setup:
-      We have a triangular array of numbers:
-      - Row 0 (top) has 1 element
-      - Row 1 has 2 elements
-      - Row k has k+1 elements
-      - We have n rows total (0 to n-1)
+   1) Problem structure:
+      We have a triangle of numbers arranged in rows:
+      - Row 0 (top): 1 element
+      - Row 1: 2 elements
+      - Row 2: 3 elements
+      - Row k: k+1 elements
       
-      Movement rule: From position (row, col), we can move to either:
+      Movement rules: From position (row, col), we can move to either:
       - (row+1, col) - directly below
       - (row+1, col+1) - diagonally below-right
       
-      Goal: Find the path from top to bottom that maximizes the sum of elements.
+      Goal: Find the path from top to bottom that maximizes the sum.
 
-   2) Naive approach: Exhaustive search
-      There are 2^(n-1) possible paths (at each of n-1 steps, we choose left or right).
-      For n=15, this is 2^14 = 16,384 paths - feasible but inefficient.
-      For n=100 (Problem 67), this is 2^99 ≈ 6×10^29 paths - completely infeasible!
+   2) Naive approach (exponential complexity):
+      We could explore all possible paths from top to bottom.
+      At each position we make a binary choice (left or right child).
+      For a triangle with n rows, this gives approximately 2^n paths.
+      For n=15, that's 32,768 paths - feasible but inefficient.
+      For larger triangles (like Problem 67 with 100 rows), this becomes
+      computationally infeasible (2^100 ≈ 10^30 paths).
 
-   3) Dynamic Programming approach:
-      Key insight: Many subproblems are solved repeatedly in the naive approach.
+   3) Dynamic programming approach (polynomial complexity):
+      Key insight: The problem has optimal substructure.
       
-      Define: maxSum[row][col] = maximum sum achievable from position (row, col)
-                                  to the bottom of the triangle
+      Define: M[r][c] = maximum sum achievable from position (r,c) to bottom
       
-      Recurrence relation:
-        maxSum[row][col] = triangle[row][col] + 
-                           max(maxSum[row+1][col], maxSum[row+1][col+1])
+      Then: M[r][c] = triangle[r][c] + max(M[r+1][c], M[r+1][c+1])
       
-      Base case:
-        maxSum[n-1][col] = triangle[n-1][col] (bottom row elements)
+      Base case: For the bottom row, M[n-1][c] = triangle[n-1][c]
       
-      The answer is maxSum[0][0] (starting from the top).
+      This recurrence relation allows us to build the solution bottom-up.
 
-   4) Bottom-up computation:
-      Instead of computing top-down with memoization, we can compute bottom-up:
-      - Start with the second-to-last row
-      - For each element, add the maximum of its two children below
+   4) Bottom-up algorithm:
+      Instead of computing recursively with memoization, we modify the
+      triangle in-place, working from bottom to top:
+      
+      - Start at the second-to-last row
+      - For each element at position (r,c), replace it with:
+          triangle[r][c] + max(triangle[r+1][c], triangle[r+1][c+1])
       - Move up row by row
-      - After processing all rows, the top element contains the answer
+      - When we reach the top, triangle[0][0] contains the answer
       
-      This approach modifies the triangle in-place, which is memory-efficient.
+      This approach:
+      - Runs in O(n²) time (we visit each element once)
+      - Uses O(1) extra space (modifies triangle in-place)
+      - Automatically finds the optimal path without explicitly tracking it
 
-   5) Complexity analysis:
-      Time: O(n²) - we visit each element once, and there are n(n+1)/2 elements
-      Space: O(1) if we modify in-place, or O(n²) if we create a copy
+   5) Why this works:
+      After processing row r, each element triangle[r][c] contains the
+      maximum sum achievable starting from that position.
       
-      For n=100, this is only ~10,000 operations - extremely fast!
+      By the time we reach the top, triangle[0][0] contains the maximum
+      sum achievable from the very top - which is our answer.
 
    6) Example walkthrough (small triangle):
-      Original:
-           3
-          7 4
-         2 4 6
-        8 5 9 3
-      
-      Step 1: Process row 2 (second-to-last)
-        2 += max(8,5) = 10
-        4 += max(5,9) = 13
-        6 += max(9,3) = 15
-      Result:
-           3
-          7 4
-        10 13 15
-        8 5 9 3
-      
-      Step 2: Process row 1
-        7 += max(10,13) = 20
-        4 += max(13,15) = 19
-      Result:
-           3
-         20 19
-        10 13 15
-        8 5 9 3
-      
-      Step 3: Process row 0 (top)
-        3 += max(20,19) = 23
-      Result:
-          23
-         20 19
-        10 13 15
-        8 5 9 3
-      
-      Answer: 23 ✓
+        3
+       7 4
+      2 4 6
+     8 5 9 3
+     
+     Bottom row: {8, 5, 9, 3} (already optimal - base case)
+     
+     Row 2 processing:
+       2 + max(8,5) = 10
+       4 + max(5,9) = 13
+       6 + max(9,3) = 15
+     Result: {10, 13, 15}
+     
+     Row 1 processing:
+       7 + max(10,13) = 20
+       4 + max(13,15) = 19
+     Result: {20, 19}
+     
+     Row 0 processing:
+       3 + max(20,19) = 23
+     Result: {23}
+     
+     Answer: 23 ✓
 
    ---------------------------------------------------------------------------
    Wolfram Language implementation
@@ -138,49 +129,42 @@ maximumPathSum[tri_List] := Module[
     workingTriangle, numRows, row, col
   },
   
-  (* Create a working copy to avoid modifying the input *)
+  (* Create a working copy to avoid modifying the original triangle *)
   workingTriangle = tri;
   numRows = Length[workingTriangle];
   
-  (* Dynamic programming: process from second-to-last row upward *)
-  For[row = numRows - 1, row >= 1, row--,
-    (* For each element in the current row *)
-    For[col = 1, col <= Length[workingTriangle[[row]]], col++,
-      (* Add the maximum of the two adjacent elements from the row below.
-         workingTriangle[[row, col]] is the current element.
-         workingTriangle[[row+1, col]] is directly below.
-         workingTriangle[[row+1, col+1]] is diagonally below-right. *)
-      workingTriangle[[row, col]] += Max[
-        workingTriangle[[row + 1, col]],
-        workingTriangle[[row + 1, col + 1]]
-      ];
-    ];
-  ];
-  
-  (* After processing all rows, the top element contains the maximum sum *)
-  workingTriangle[[1, 1]]
-]
-
-(* More functional version using MapIndexed and Fold *)
-maximumPathSumFunctional[tri_List] := Module[
-  {
-    workingTriangle = tri,
-    numRows = Length[tri]
-  },
-  
-  (* Process each row from second-to-last to first *)
+  (* Dynamic programming: work from second-to-last row upward to top *)
   Do[
-    workingTriangle[[row]] = MapIndexed[
-      (* For each element at position col, add max of two children below *)
-      #1 + Max[workingTriangle[[row + 1, #2[[1]]]], 
-               workingTriangle[[row + 1, #2[[1]] + 1]]]&,
-      workingTriangle[[row]]
+    (* For each element in the current row *)
+    Do[
+      (* Add the maximum of the two adjacent elements from the row below *)
+      workingTriangle[[row, col]] += 
+        Max[workingTriangle[[row + 1, col]], 
+            workingTriangle[[row + 1, col + 1]]],
+      {col, 1, Length[workingTriangle[[row]]]}
     ],
     {row, numRows - 1, 1, -1}
   ];
   
-  (* Return the top element *)
+  (* After processing, the top element contains the maximum path sum *)
   workingTriangle[[1, 1]]
+]
+
+(* More functional approach using MapIndexed and FoldRight *)
+maximumPathSumFunctional[tri_List] := Module[
+  {
+    processRow
+  },
+  
+  (* Function to merge two adjacent rows *)
+  processRow[upperRow_, lowerRow_] :=
+    MapIndexed[
+      #1 + Max[lowerRow[[#2[[1]]]], lowerRow[[#2[[1]] + 1]]]&,
+      upperRow
+    ];
+  
+  (* Fold from bottom to top, merging rows pairwise *)
+  First[FoldRight[processRow, tri]]
 ]
 
 (* Calculate the maximum path sum for the given triangle *)
