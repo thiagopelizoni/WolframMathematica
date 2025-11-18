@@ -17,3 +17,4 @@
 * [Problem 11](https://projecteuler.net/problem=11) | [Solution](src/problem_011.mathematica)
 * [Problem 12](https://projecteuler.net/problem=12) | [Solution](src/problem_012.mathematica)
 * [Problem 13](https://projecteuler.net/problem=13) | [Solution](src/problem_013.mathematica)
+* [Problem 14](https://projecteuler.net/problem=14) | [Solution](src/problem_014.mathematica)
