@@ -15,3 +15,4 @@
 * [Problem 9](https://projecteuler.net/problem=9) | [Solution](src/problem_009.mathematica)
 * [Problem 10](https://projecteuler.net/problem=10) | [Solution](src/problem_010.mathematica)
 * [Problem 11](https://projecteuler.net/problem=11) | [Solution](src/problem_011.mathematica)
+* [Problem 12](https://projecteuler.net/problem=12) | [Solution](src/problem_012.mathematica)
