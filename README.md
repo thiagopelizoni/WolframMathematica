@@ -25,3 +25,4 @@
 * [Problem 19](https://projecteuler.net/problem=19) | [Solution](src/problem_019.mathematica)
 * [Problem 20](https://projecteuler.net/problem=20) | [Solution](src/problem_020.mathematica)
 * [Problem 21](https://projecteuler.net/problem=21) | [Solution](src/problem_021.mathematica)
+* [Problem 22](https://projecteuler.net/problem=22) | [Solution](src/problem_022.mathematica)
