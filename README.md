@@ -39,3 +39,4 @@
 * [Problem 33](https://projecteuler.net/problem=33) | [Solution](src/problem_033.mathematica)
 * [Problem 34](https://projecteuler.net/problem=34) | [Solution](src/problem_034.mathematica)
 * [Problem 35](https://projecteuler.net/problem=35) | [Solution](src/problem_035.mathematica)
+* [Problem 36](https://projecteuler.net/problem=36) | [Solution](src/problem_036.mathematica)
