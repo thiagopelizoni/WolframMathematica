@@ -45,3 +45,4 @@
 * [Problem 39](https://projecteuler.net/problem=39) | [Solution](src/problem_039.mathematica)
 * [Problem 40](https://projecteuler.net/problem=40) | [Solution](src/problem_040.mathematica)
 * [Problem 41](https://projecteuler.net/problem=41) | [Solution](src/problem_041.mathematica)
+* [Problem 42](https://projecteuler.net/problem=42) | [Solution](src/problem_042.mathematica)
