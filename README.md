@@ -49,3 +49,4 @@ This project is a transcription to Wolfram Mathematica based on the problems alr
 * [Problem 41](https://projecteuler.net/problem=41) | [Solution](src/problem_041.mathematica)
 * [Problem 42](https://projecteuler.net/problem=42) | [Solution](src/problem_042.mathematica)
 * [Problem 43](https://projecteuler.net/problem=43) | [Solution](src/problem_043.mathematica)
+* [Problem 44](https://projecteuler.net/problem=44) | [Solution](src/problem_044.mathematica)
