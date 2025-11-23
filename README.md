@@ -52,3 +52,4 @@ This project is a transcription to Wolfram Mathematica based on the problems alr
 * [Problem 44](https://projecteuler.net/problem=44) | [Solution](src/problem_044.mathematica)
 * [Problem 45](https://projecteuler.net/problem=45) | [Solution](src/problem_045.mathematica)
 * [Problem 46](https://projecteuler.net/problem=46) | [Solution](src/problem_046.mathematica)
+* [Problem 47](https://projecteuler.net/problem=47) | [Solution](src/problem_047.mathematica)
