@@ -77,3 +77,4 @@ This project is a transcription to Wolfram Mathematica based on the problems alr
 * [Problem 73](https://projecteuler.net/problem=73) | [Solution](src/problem_073.mathematica)
 * [Problem 74](https://projecteuler.net/problem=74) | [Solution](src/problem_074.mathematica)
 * [Problem 75](https://projecteuler.net/problem=75) | [Solution](src/problem_075.mathematica)
+* [Problem 76](https://projecteuler.net/problem=76) | [Solution](src/problem_076.mathematica)
