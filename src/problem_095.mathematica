@@ -39,7 +39,6 @@
 
 (* --- Global Logic Definitions --- *)
 
-(* Calculate valid candidates for a specific cell {r,c} given current board state *)
 getCandidates[board_, r_, c_] := Module[{row, col, blockRow, blockCol, block, used},
   row = board[[r]];
   col = board[[All, c]];
@@ -50,41 +49,35 @@ getCandidates[board_, r_, c_] := Module[{row, col, blockRow, blockCol, block, us
   Complement[{1, 2, 3, 4, 5, 6, 7, 8, 9}, used]
 ];
 
-(* Find the empty cell with the fewest candidates (MRV Heuristic) *)
 findBestCell[board_] := Module[{emptyPos, bestPos = Null, minLen = 10, cands},
   emptyPos = Position[board, 0, {2}];
   
-  If[Length[emptyPos] == 0, Return[Null]]; (* Board full *)
+  If[Length[emptyPos] == 0, Return[Null]];
 
   Do[
     cands = getCandidates[board, pos[[1]], pos[[2]]];
     If[Length[cands] < minLen,
       minLen = Length[cands];
       bestPos = pos;
-      (* Optimization: 1 candidate is deterministic, stop immediately *)
       If[minLen <= 1, Break[]]; 
     ];
   , {pos, emptyPos}];
 
-  If[minLen == 0, Return[$Failed]]; (* Dead end found *)
+  If[minLen == 0, Return[$Failed]];
   
   {bestPos, getCandidates[board, bestPos[[1]], bestPos[[2]]]}
 ];
 
-(* Recursive Backtracking with Catch/Throw for fast exit *)
 backtrack[board_] := Module[{target, pos, cands, r, c},
   target = findBestCell[board];
 
-  (* Success: No empty cells *)
   If[target === Null, Throw[board]];
   
-  (* Failure: Dead end *)
   If[target === $Failed, Return[$Failed]];
 
   {pos, cands} = target;
   {r, c} = pos;
 
-  (* Try all candidates *)
   Do[
     backtrack[ReplacePart[board, {r, c} -> val]];
   , {val, cands}];
@@ -94,29 +87,20 @@ backtrack[board_] := Module[{target, pos, cands, r, c},
 
 solveOne[grid_] := Catch[backtrack[grid]];
 
-(* --- Main Solver --- *)
-
 solve[] := Module[{rawData, puzzles, solvedGrids},
   
-  (* Explicitly launch kernels to stabilize connection before computation *)
   LaunchKernels[];
   
-  (* Ensure all worker kernels have the definitions required to solve *)
   DistributeDefinitions[getCandidates, findBestCell, backtrack, solveOne];
 
-  (* Import and Parse *)
-  (* The file has a header "Grid XX" every 10 lines. We drop it and parse the 9 rows. *)
   rawData = Import["https://projecteuler.net/project/resources/p096_sudoku.txt", "Lines"];
   puzzles = Map[
     Function[chunk, Map[ToExpression[Characters[#]] &, Rest[chunk]]],
     Partition[rawData, 10]
   ];
 
-  (* Parallel Execution *)
-  (* CoarsestGrained is efficient here as each task (1 puzzle) takes non-trivial time compared to comms *)
   solvedGrids = ParallelMap[solveOne, puzzles, Method -> "CoarsestGrained"];
 
-  (* Aggregation *)
   Total[
     Map[
       FromDigits[#[[1, 1 ;; 3]]] &, 
