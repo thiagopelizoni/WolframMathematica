@@ -2,10 +2,6 @@
 
 [ProjectEuler.net](https://projecteuler.net/) challenges solved using Mathematica.
 
-This project is a transcription to Wolfram Mathematica based on the problems already solved in my repository https://github.com/thiagopelizoni/ProjectEuler. The focus is on trying to explain the problem and the solution mathematically not from the point of view of a mathematician, but of a programmer passionate about mathematics.
-
-![Badge](https://projecteuler.net/profile/ThiagoPelizoni.png)
-
 * [Problem 1](https://projecteuler.net/problem=1) | [Solution](src/problem_001.mathematica)
 * [Problem 2](https://projecteuler.net/problem=2) | [Solution](src/problem_002.mathematica)
 * [Problem 3](https://projecteuler.net/problem=3) | [Solution](src/problem_003.mathematica)
@@ -106,3 +102,4 @@ This project is a transcription to Wolfram Mathematica based on the problems alr
 * [Problem 103](https://projecteuler.net/problem=103) | [Solution](src/problem_103.mathematica)
 * [Problem 104](https://projecteuler.net/problem=104) | [Solution](src/problem_104.mathematica)
 * [Problem 105](https://projecteuler.net/problem=105) | [Solution](src/problem_105.mathematica)
+* [Problem 106](https://projecteuler.net/problem=106) | [Solution](src/problem_106.mathematica)
