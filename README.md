@@ -104,3 +104,4 @@ This project is a transcription to Wolfram Mathematica based on the problems alr
 * [Problem 101](https://projecteuler.net/problem=101) | [Solution](src/problem_101.mathematica)
 * [Problem 102](https://projecteuler.net/problem=102) | [Solution](src/problem_102.mathematica)
 * [Problem 103](https://projecteuler.net/problem=103) | [Solution](src/problem_103.mathematica)
+* [Problem 104](https://projecteuler.net/problem=104) | [Solution](src/problem_104.mathematica)
