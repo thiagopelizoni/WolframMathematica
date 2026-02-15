@@ -110,3 +110,4 @@
 * [Problem 111](https://projecteuler.net/problem=111) | [Solution](src/problem_111.mathematica)
 * [Problem 112](https://projecteuler.net/problem=112) | [Solution](src/problem_112.mathematica)
 * [Problem 113](https://projecteuler.net/problem=113) | [Solution](src/problem_113.mathematica)
+* [Problem 114](https://projecteuler.net/problem=114) | [Solution](src/problem_114.mathematica)
