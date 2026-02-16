@@ -112,3 +112,4 @@
 * [Problem 113](https://projecteuler.net/problem=113) | [Solution](src/problem_113.mathematica)
 * [Problem 114](https://projecteuler.net/problem=114) | [Solution](src/problem_114.mathematica)
 * [Problem 115](https://projecteuler.net/problem=115) | [Solution](src/problem_115.mathematica)
+* [Problem 116](https://projecteuler.net/problem=116) | [Solution](src/problem_116.mathematica)
