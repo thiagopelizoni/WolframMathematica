@@ -120,3 +120,4 @@
 * [Problem 121](https://projecteuler.net/problem=121) | [Solution](src/problem_121.mathematica)
 * [Problem 122](https://projecteuler.net/problem=122) | [Solution](src/problem_122.mathematica)
 * [Problem 123](https://projecteuler.net/problem=123) | [Solution](src/problem_123.mathematica)
+* [Problem 124](https://projecteuler.net/problem=124) | [Solution](src/problem_124.mathematica)
