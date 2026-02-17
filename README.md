@@ -118,3 +118,4 @@
 * [Problem 119](https://projecteuler.net/problem=119) | [Solution](src/problem_119.mathematica)
 * [Problem 120](https://projecteuler.net/problem=120) | [Solution](src/problem_120.mathematica)
 * [Problem 121](https://projecteuler.net/problem=121) | [Solution](src/problem_121.mathematica)
+* [Problem 122](https://projecteuler.net/problem=122) | [Solution](src/problem_122.mathematica)
