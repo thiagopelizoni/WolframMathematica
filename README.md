@@ -131,3 +131,4 @@
 * [Problem 132](https://projecteuler.net/problem=132) | [Solution](src/problem_132.mathematica)
 * [Problem 133](https://projecteuler.net/problem=133) | [Solution](src/problem_133.mathematica)
 * [Problem 134](https://projecteuler.net/problem=134) | [Solution](src/problem_134.mathematica)
+* [Problem 135](https://projecteuler.net/problem=135) | [Solution](src/problem_135.mathematica)
