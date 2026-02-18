@@ -127,3 +127,4 @@
 * [Problem 128](https://projecteuler.net/problem=128) | [Solution](src/problem_128.mathematica)
 * [Problem 129](https://projecteuler.net/problem=129) | [Solution](src/problem_129.mathematica)
 * [Problem 130](https://projecteuler.net/problem=130) | [Solution](src/problem_130.mathematica)
+* [Problem 131](https://projecteuler.net/problem=131) | [Solution](src/problem_131.mathematica)
