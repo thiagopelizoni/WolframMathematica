@@ -143,3 +143,4 @@
 * [Problem 144](https://projecteuler.net/problem=144) | [Solution](src/problem_144.mathematica)
 * [Problem 145](https://projecteuler.net/problem=145) | [Solution](src/problem_145.mathematica)
 * [Problem 146](https://projecteuler.net/problem=146) | [Solution](src/problem_146.mathematica)
+* [Problem 147](https://projecteuler.net/problem=147) | [Solution](src/problem_147.mathematica)
