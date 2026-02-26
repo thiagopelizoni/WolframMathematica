@@ -155,3 +155,4 @@
 * [Problem 156](https://projecteuler.net/problem=156) | [Solution](src/problem_156.mathematica)
 * [Problem 157](https://projecteuler.net/problem=157) | [Solution](src/problem_157.mathematica)
 * [Problem 158](https://projecteuler.net/problem=158) | [Solution](src/problem_158.mathematica)
+* [Problem 159](https://projecteuler.net/problem=159) | [Solution](src/problem_159.mathematica)
