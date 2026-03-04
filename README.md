@@ -161,3 +161,4 @@
 * [Problem 162](https://projecteuler.net/problem=162) | [Solution](src/problem_162.mathematica)
 * [Problem 163](https://projecteuler.net/problem=163) | [Solution](src/problem_163.mathematica)
 * [Problem 164](https://projecteuler.net/problem=164) | [Solution](src/problem_164.mathematica)
+* [Problem 165](https://projecteuler.net/problem=165) | [Solution](src/problem_165.mathematica)
